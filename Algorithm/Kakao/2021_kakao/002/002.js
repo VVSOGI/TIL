@@ -135,7 +135,12 @@ function solution(orders, course) {
     }
 
     for (let i = start; i < arr.length; i++) {
-      createSet(arr, i + 1, len - 1, foods + arr[i]);
+      // 뒤에 붙일 숫자가 부족할 경우에 반복문을 멈춘다. (수정.1)
+      if (arr.length - (i + len) < 0) {
+        break;
+      } else {
+        createSet(arr, i + 1, len - 1, foods + arr[i]);
+      }
     }
   };
 
@@ -157,5 +162,5 @@ function solution(orders, course) {
 }
 
 console.log(
-  solution(["ABCDE", "AB", "CD", "ADE", "XYZ", "XYZ", "ACD"], [2, 3, 5])
+  solution(["ABCFG", "AC", "CDE", "ACDE", "BCFG", "ACDEH"], [2, 3, 4])
 );
