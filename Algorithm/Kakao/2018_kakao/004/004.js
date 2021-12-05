@@ -66,6 +66,7 @@ function solution(m, n, board) {
   while (fourChecker(board).length > 0) {
     let checkedArr = fourChecker(board);
     let uniqueArr = multiDimensionalUnique(checkedArr);
+    console.log(checkedArr);
     let boardToArr = board.map((item) => item.split(""));
     count += uniqueArr.length;
 
