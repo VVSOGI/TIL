@@ -28,12 +28,14 @@ function addKey(keyList, key, relation) {
       isMin = false;
     }
   }
+
   // 등록한 후보키가 하나도 없으면 최소성이 항상 만족되므로 패스
   if (keyList.length !== 0 && !isMin) {
     return;
   }
   let arr = [];
   let isUnique = true;
+
   // 유일성 체크
   // 키로 사용했을 때 하나라도 중복되면 유일성 X
   for (let i = 0; i < relation.length; i++) {
