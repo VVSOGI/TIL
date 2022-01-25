@@ -1,8 +1,6 @@
 import React from "react";
 
-const Post = (post: any) => {
-  console.log(post);
-
+const Post = ({ post }: any) => {
   return (
     <div>
       <h1>{post.title}</h1>

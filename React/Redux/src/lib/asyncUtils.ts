@@ -1,17 +1,21 @@
 import { PostState } from "../modules/posts";
 
-export const createPromiseThunk = (type: string, promiseCreator: any) => {
+export const createPromiseThunk = (
+  type: string,
+  promiseCreator: (props: number) => void
+) => {
   const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
 
-  return (param: any) => async (dispatch: any) => {
-    dispatch({ type, param });
-    try {
-      const payload = await promiseCreator(param);
-      dispatch({ type: SUCCESS, payload });
-    } catch (e) {
-      dispatch({ type: ERROR, payload: e, error: true });
-    }
-  };
+  return (param: number | null) =>
+    async (dispatch: (item: any) => void, currentValue: () => void) => {
+      dispatch({ type, param });
+      try {
+        const payload = await promiseCreator(param !== null ? param : 0);
+        dispatch({ type: SUCCESS, payload });
+      } catch (e) {
+        dispatch({ type: ERROR, payload: e, error: true });
+      }
+    };
 };
 
 export const reducerUtils = {
