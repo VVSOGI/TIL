@@ -6,12 +6,13 @@ import { getPost } from "../modules/posts";
 
 const PostContainer = ({ postId }: { postId: number }) => {
   const { data, loading, error } = useSelector((state: RootState) => {
-    return state.posts.post;
-  });
+    return state.posts.post[postId];
+  }) || { data: null, loading: false, error: null };
 
   const dispatch = useDispatch();
 
   useEffect(() => {
+    if (data) return;
     dispatch(getPost(postId));
   }, [postId, dispatch]);
 

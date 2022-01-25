@@ -31,7 +31,7 @@ export const createPromiseThunk = (
   const [SUCCESS, ERROR] = [`${type}_SUCCESS`, `${type}_ERROR`];
 
   return (param: number | null) =>
-    async (dispatch: (item: any) => void, currentValue: () => void) => {
+    async (dispatch: (item: any) => void, getState: () => void) => {
       dispatch({ type, param });
       try {
         const payload = await promiseCreator(param !== null ? param : 0);
@@ -46,7 +46,7 @@ export const createPromiseThunk = (
 위에 작성된 코드가 thunk를 만드는 과정이라고 볼 수 있는데,
 
 ```js
-async (dispatch: (item: any) => void, currentValue: () => void)
+async (dispatch: (item: any) => void, getState: () => void)
 ```
 
 이 부분이 thunk를 통해 만들어진 부분이라고 보면 된다. 사실 이렇게 안해도 할 수 있는 거 아니냐라고 물어보면 맞다고 말할 수 있다. 근데 이렇게 안하면 비동기 함수를 사용해서 데이터를 불러오고 상태를 리덕스로 저장하려면 코드의 응집성이 낮아진다랄까? 코드도 지저분해지는 경향이 있으니 따로 분류해서 비동기 처리를 한다고 생각하자.
