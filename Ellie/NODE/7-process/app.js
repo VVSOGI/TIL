@@ -21,3 +21,6 @@ process.nextTick(() => {
 for (let i = 0; i < 10000; i++) {
   console.log("for loop");
 }
+
+// process 내장 정보
+// os와 비슷함.

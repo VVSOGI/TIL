@@ -27,3 +27,5 @@ console.log(this);
 console.log(this === module.exports);
 
 console.log(global, "123");
+
+// this가 어디에 박혀있느냐에 따라 다르게 표현된다.
