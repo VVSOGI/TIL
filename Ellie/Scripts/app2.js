@@ -3,8 +3,6 @@ const os = require("os");
 const path = require("path");
 const fs = require("fs");
 
-console.clear();
-
 const folder = process.argv[2];
 const workingDir = path.join(os.homedir(), "Pictures", folder);
 if (!folder || !fs.existsSync(workingDir)) {
@@ -42,11 +40,13 @@ function isViedoFile(file) {
   const match = file.match(regExp);
   return !!match;
 }
+
 function isCapturedFile(file) {
   const regExp = /(png|aae)$/gm;
   const match = file.match(regExp);
   return !!match;
 }
+
 function isDuplicatedFile(files, file) {
   if (!file.startsWith("IMG_") || file.startsWith("IMG_E")) {
     return false;
