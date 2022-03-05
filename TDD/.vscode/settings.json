@@ -1,0 +1,12 @@
+{
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "editor.fontFamily": "Fira Code, Menlo, Monaco, 'Courier New', monospace",
+  "editor.fontLigatures": true,
+  "eslint.format.enable": true,
+  "eslint.lintTask.enable": true,
+  "files.eol": "\n",
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "prettier.singleQuote": true,
+  "workbench.iconTheme": "material-icon-theme"
+}
