@@ -1,6 +1,8 @@
 class Stack {
   constructor() {
     this.list = [];
+    this._size = 0;
+    this.head = null;
   }
 
   present() {

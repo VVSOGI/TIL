@@ -32,7 +32,7 @@ describe('Make Stack LIFO destructure', () => {
     expect(present).toEqual([15]);
   });
 
-  test('If doing pop on empty list is throw error', () => {
+  test('Throw error doing pop when empty list', () => {
     expect(() => TestStack.pop()).toThrowError('error');
   });
 });
